@@ -55,7 +55,7 @@ class GridTest {
 
         var invertResult = false
 
-        val grid = Grid(width, height) { grid, x, y, overrideBlocking ->
+        val grid = Grid(width, height) { grid, x, y, _ ->
             grid.isInside(x, y) && if (invertResult) matrix[y][x] == 0 else matrix[y][x] == 1
         }
 
