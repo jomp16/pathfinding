@@ -33,7 +33,7 @@ class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boo
 
     fun getNodeAt(x: Int, y: Int): Node = nodes[y][x]
 
-    fun isInside(x: Int, y: Int): Boolean = x >= 0 && x < width && y >= 0 && y < height
+    fun isInside(x: Int, y: Int): Boolean = x in 0..(width - 1) && y >= 0 && y < height
 
     fun getNeighbors(node: Node, diagonalMovement: DiagonalMovement, overrideBlocking: Boolean): List<Node> {
         val x = node.x
