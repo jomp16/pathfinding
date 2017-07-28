@@ -49,12 +49,9 @@ class GridTest {
                 arrayOf(0, 0, 0, 0),
                 arrayOf(1, 0, 0, 1)
         )
-
         val width = matrix[0].size
         val height = matrix.size
-
         var invertResult = false
-
         val grid = Grid(width, height) { grid, x, y, _ ->
             grid.isInside(x, y) && if (invertResult) matrix[y][x] == 0 else matrix[y][x] == 1
         }
@@ -67,7 +64,6 @@ class GridTest {
                 Assert.assertEquals("should return correct answer for position validity query", matrix[y][x] == 1, grid.isWalkable(grid, x, y, false))
             }
         }
-
         val asserts = arrayOf(
                 arrayOf(0, 0, true),
                 arrayOf(0, height - 1, true),
@@ -88,6 +84,6 @@ class GridTest {
         invertResult = true
 
         Assert.assertEquals("should return correct neighbors", listOf(grid.getNodeAt(0, 2)), grid.getNeighbors(grid.getNodeAt(0, 1), DiagonalMovement.NEVER, false))
-        Assert.assertEquals("should return correct neighbors", listOf(grid.getNodeAt(1, 0), grid.getNodeAt(2, 1), grid.getNodeAt(3, 1)), grid.getNeighbors(grid.getNodeAt(2, 0), DiagonalMovement.IF_AT_MOST_ONE_OBSTACLE, false).sortedWith(Comparator { a, b -> a.x * 100 + a.y - b.x * 100 - b.y }))
+        Assert.assertEquals("should return correct neighbors", listOf(grid.getNodeAt(1, 0), grid.getNodeAt(2, 1), grid.getNodeAt(3, 1)), grid.getNeighbors(grid.getNodeAt(2, 0), DiagonalMovement.IF_AT_MOST_ONE_OBSTACLE, false).sortedWith(Comparator { (x, y), (x1, y1) -> x * 100 + y - x1 * 100 - y1 }))
     }
 }

@@ -24,7 +24,6 @@ import tk.jomp16.utils.pathfinding.core.*
 import tk.jomp16.utils.pathfinding.core.heuristics.ManhattanHeuristic
 import tk.jomp16.utils.pathfinding.core.heuristics.OctileHeuristic
 import java.util.*
-import kotlin.comparisons.compareBy
 
 class AStarFinder(
         private val diagonalMovement: DiagonalMovement = DiagonalMovement.ONLY_WHEN_NO_OBSTACLES,
@@ -33,7 +32,6 @@ class AStarFinder(
     override fun findPath(grid: Grid, startX: Int, startY: Int, endX: Int, endY: Int, overrideBlocking: Boolean): List<Path> {
         val openList: Queue<Node> = PriorityQueue(compareBy(Node::f))
         val closedList: MutableList<Node> = ArrayList()
-
         val startNode = grid.getNodeAt(startX, startY)
         val endNode = grid.getNodeAt(endX, endY)
         var node: Node
@@ -56,7 +54,6 @@ class AStarFinder(
             // if reached the end position, construct the path and return it
             if (node == endNode) {
                 val path: MutableList<Path> = ArrayList()
-
                 var target: Node? = endNode
 
                 while (target != startNode) {
@@ -75,7 +72,6 @@ class AStarFinder(
 
             neighbors.forEach { neighbor ->
                 if (closedList.contains(neighbor)) return@forEach
-
                 val x = neighbor.x
                 val y = neighbor.y
 

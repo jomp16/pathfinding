@@ -38,10 +38,8 @@ class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boo
     fun getNeighbors(node: Node, diagonalMovement: DiagonalMovement, overrideBlocking: Boolean): List<Node> {
         val x = node.x
         val y = node.y
-
         val neighbors: MutableList<Node> = ArrayList()
         val nodes1 = nodes.copyOf()
-
         var s0 = false
         var d0 = false
         var s1 = false
