@@ -33,8 +33,8 @@ class GridTest {
         Assert.assertEquals("should have correct size", width, grid.width)
         Assert.assertEquals("should have correct size", height, grid.height)
 
-        (0..height - 1).forEach { y ->
-            (0..width - 1).forEach { x ->
+        (0 until height).forEach { y ->
+            (0 until width).forEach { x ->
                 Assert.assertTrue("should set all nodes walkable attribute", grid.isWalkable(grid, x, y, false))
             }
         }
@@ -59,8 +59,8 @@ class GridTest {
         Assert.assertEquals("should have correct size", width, grid.width)
         Assert.assertEquals("should have correct size", height, grid.height)
 
-        (0..height - 1).forEach { y ->
-            (0..width - 1).forEach { x ->
+        (0 until height).forEach { y ->
+            (0 until width).forEach { x ->
                 Assert.assertEquals("should return correct answer for position validity query", matrix[y][x] == 1, grid.isWalkable(grid, x, y, false))
             }
         }
