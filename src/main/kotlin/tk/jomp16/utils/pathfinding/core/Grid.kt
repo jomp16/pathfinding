@@ -19,8 +19,6 @@
 
 package tk.jomp16.utils.pathfinding.core
 
-import java.util.*
-
 /**
  * The Grid class, which serves as the encapsulation of the layout of the nodes.
  *
@@ -38,7 +36,7 @@ class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boo
     fun getNeighbors(node: Node, diagonalMovement: DiagonalMovement, overrideBlocking: Boolean): List<Node> {
         val x = node.x
         val y = node.y
-        val neighbors: MutableList<Node> = ArrayList()
+        val neighbors: MutableList<Node> = mutableListOf()
         val nodes1 = nodes.copyOf()
         var s0 = false
         var d0 = false
@@ -48,28 +46,24 @@ class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boo
         var d2 = false
         var s3 = false
         var d3 = false
-
         // ↑
         if (isWalkable(this, x, y - 1, overrideBlocking)) {
             neighbors += nodes1[y - 1][x]
 
             s0 = true
         }
-
         // →
         if (isWalkable(this, x + 1, y, overrideBlocking)) {
             neighbors += nodes1[y][x + 1]
 
             s1 = true
         }
-
         // ↓
         if (isWalkable(this, x, y + 1, overrideBlocking)) {
             neighbors += nodes1[y + 1][x]
 
             s2 = true
         }
-
         // ←
         if (isWalkable(this, x - 1, y, overrideBlocking)) {
             neighbors += nodes1[y][x - 1]
@@ -98,22 +92,18 @@ class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boo
                 d3 = true
             }
         }
-
         // ↖
         if (d0 && isWalkable(this, x - 1, y - 1, overrideBlocking)) {
             neighbors += nodes[y - 1][x - 1]
         }
-
         // ↗
         if (d1 && isWalkable(this, x + 1, y - 1, overrideBlocking)) {
             neighbors += nodes[y - 1][x + 1]
         }
-
         // ↘
         if (d2 && isWalkable(this, x + 1, y + 1, overrideBlocking)) {
             neighbors += nodes[y + 1][x + 1]
         }
-
         // ↙
         if (d3 && isWalkable(this, x - 1, y + 1, overrideBlocking)) {
             neighbors += nodes[y + 1][x - 1]

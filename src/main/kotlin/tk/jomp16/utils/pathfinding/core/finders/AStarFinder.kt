@@ -31,29 +31,25 @@ class AStarFinder(
 ) : IFinder {
     override fun findPath(grid: Grid, startX: Int, startY: Int, endX: Int, endY: Int, overrideBlocking: Boolean): List<Path> {
         val openList: Queue<Node> = PriorityQueue(compareBy(Node::f))
-        val closedList: MutableList<Node> = ArrayList()
+        val closedList: MutableList<Node> = mutableListOf()
         val startNode = grid.getNodeAt(startX, startY)
         val endNode = grid.getNodeAt(endX, endY)
         var node: Node
         var neighbors: List<Node>
-
         // set the 'g' and 'f' value of the start node to be 0
         startNode.g = 0.toDouble()
         startNode.f = 0.toDouble()
-
         // push the start node into the open list
         openList.offer(startNode)
-
         // while the open list is not empty
         while (openList.isNotEmpty()) {
             // pop the position of node which has the minimum 'f' value.
             node = openList.poll()
 
             if (!closedList.contains(node)) closedList.add(node)
-
             // if reached the end position, construct the path and return it
             if (node == endNode) {
-                val path: MutableList<Path> = ArrayList()
+                val path: MutableList<Path> = mutableListOf()
                 var target: Node? = endNode
 
                 while (target != startNode) {
@@ -66,7 +62,6 @@ class AStarFinder(
 
                 return path.reversed()
             }
-
             // get neighbours of the current node
             neighbors = grid.getNeighbors(node, diagonalMovement, overrideBlocking)
 
@@ -74,11 +69,9 @@ class AStarFinder(
                 if (closedList.contains(neighbor)) return@forEach
                 val x = neighbor.x
                 val y = neighbor.y
-
                 // get the distance between current node and the neighbor
                 // and calculate the next g score
                 val ng = node.g + if (x - node.x == 0 || y - node.y == 0) 1.toDouble() else Math.sqrt(2.toDouble())
-
                 // check if the neighbor has not been inspected yet, or
                 // can be reached with smaller cost from the current node
                 if (!openList.contains(neighbor) || ng < neighbor.g) {
