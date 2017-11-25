@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 jomp16
+ * Copyright (C) 2015-2017 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -17,7 +17,7 @@
  * along with pathfinding. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tk.jomp16.utils.pathfinding.core
+package ovh.rwx.utils.pathfinding.core
 
 enum class DiagonalMovement {
     ALWAYS,

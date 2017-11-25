@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 jomp16
+ * Copyright (C) 2015-2017 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -17,8 +17,13 @@
  * along with pathfinding. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tk.jomp16.utils.pathfinding.core
+package ovh.rwx.utils.pathfinding.core
 
-interface IHeuristic {
-    fun getCost(grid: Grid, dx: Int, dy: Int): Double
-}
+data class Node(
+        val x: Int,
+        val y: Int,
+        var g: Double = 0.toDouble(),
+        var f: Double = 0.toDouble(),
+        var h: Double = 0.toDouble(),
+        var parent: Node? = null
+)

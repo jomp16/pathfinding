@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 jomp16
+ * Copyright (C) 2015-2017 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -17,9 +17,15 @@
  * along with pathfinding. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tk.jomp16.utils.pathfinding.core
+package ovh.rwx.utils.pathfinding.core.heuristics
 
-data class Path(
-        val x: Int,
-        val y: Int
-)
+import ovh.rwx.utils.pathfinding.core.Grid
+import ovh.rwx.utils.pathfinding.core.IHeuristic
+
+class OctileHeuristic : IHeuristic {
+    override fun getCost(grid: Grid, dx: Int, dy: Int): Double {
+        val r = Math.sqrt(2.toDouble()) - 1
+
+        return if (dx < dy) r * dx + dy else r * dy + dx
+    }
+}
