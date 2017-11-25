@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 jomp16
+ * Copyright (C) 2015-2017 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -17,11 +17,9 @@
  * along with pathfinding. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tk.jomp16.utils.pathfinding.core.heuristics
+package ovh.rwx.utils.pathfinding.core
 
-import tk.jomp16.utils.pathfinding.core.Grid
-import tk.jomp16.utils.pathfinding.core.IHeuristic
-
-class ManhattanHeuristic : IHeuristic {
-    override fun getCost(grid: Grid, dx: Int, dy: Int) = (dx + dy).toDouble()
-}
+data class Path(
+        val x: Int,
+        val y: Int
+)

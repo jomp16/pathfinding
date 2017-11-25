@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 jomp16
+ * Copyright (C) 2015-2017 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -17,4 +17,4 @@
  * along with pathfinding. If not, see <http://www.gnu.org/licenses/>.
  */
 
-group "tk.jomp16.utils.pathfinding"
+group "ovh.rwx.utils.pathfinding"

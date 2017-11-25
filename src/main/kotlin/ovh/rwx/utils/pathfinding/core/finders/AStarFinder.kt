@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2017 jomp16
+ * Copyright (C) 2015-2017 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -17,12 +17,12 @@
  * along with pathfinding. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package tk.jomp16.utils.pathfinding.core.finders
+package ovh.rwx.utils.pathfinding.core.finders
 
-import tk.jomp16.utils.pathfinding.IFinder
-import tk.jomp16.utils.pathfinding.core.*
-import tk.jomp16.utils.pathfinding.core.heuristics.ManhattanHeuristic
-import tk.jomp16.utils.pathfinding.core.heuristics.OctileHeuristic
+import ovh.rwx.utils.pathfinding.IFinder
+import ovh.rwx.utils.pathfinding.core.*
+import ovh.rwx.utils.pathfinding.core.heuristics.ManhattanHeuristic
+import ovh.rwx.utils.pathfinding.core.heuristics.OctileHeuristic
 import java.util.*
 
 class AStarFinder(
