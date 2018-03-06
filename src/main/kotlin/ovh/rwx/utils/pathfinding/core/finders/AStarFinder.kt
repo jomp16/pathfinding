@@ -25,7 +25,7 @@ import ovh.rwx.utils.pathfinding.core.heuristics.ManhattanHeuristic
 import ovh.rwx.utils.pathfinding.core.heuristics.OctileHeuristic
 import java.util.*
 
-class AStarFinder(
+open class AStarFinder(
         private val diagonalMovement: DiagonalMovement = DiagonalMovement.ONLY_WHEN_NO_OBSTACLES,
         private val heuristic: IHeuristic = if (diagonalMovement == DiagonalMovement.NEVER) OctileHeuristic() else ManhattanHeuristic()
 ) : IFinder {
