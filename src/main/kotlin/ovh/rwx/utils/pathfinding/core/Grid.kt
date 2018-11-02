@@ -27,7 +27,7 @@ package ovh.rwx.utils.pathfinding.core
  * @param isWalkable: a Kotlin function with param grid, x, y and returns a boolean
  */
 class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boolean) -> Boolean = { grid, x, y, overrideBlock -> overrideBlock || grid.isInside(x, y) }) {
-    private val nodes: Array<Array<Node>> = Array(height) { y -> Array(width, { x -> Node(x, y) }) }
+    private val nodes: Array<Array<Node>> = Array(height) { y -> Array(width) { x -> Node(x, y) } }
 
     fun getNodeAt(x: Int, y: Int): Node = nodes[y][x]
 
