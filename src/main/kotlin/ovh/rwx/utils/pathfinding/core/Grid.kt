@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2018 jomp16 <root@rwx.ovh>
+ * Copyright (C) 2015-2019 jomp16 <root@rwx.ovh>
  *
  * This file is part of pathfinding.
  *
@@ -31,7 +31,7 @@ class Grid(val width: Int, val height: Int, val isWalkable: (Grid, Int, Int, Boo
 
     fun getNodeAt(x: Int, y: Int): Node = nodes[y][x]
 
-    fun isInside(x: Int, y: Int): Boolean = x in 0..(width - 1) && y >= 0 && y < height
+    fun isInside(x: Int, y: Int): Boolean = x in 0 until width && y >= 0 && y < height
 
     fun getNeighbors(node: Node, diagonalMovement: DiagonalMovement, overrideBlocking: Boolean): List<Node> {
         val x = node.x
