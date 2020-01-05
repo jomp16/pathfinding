@@ -21,8 +21,9 @@ package ovh.rwx.utils.pathfinding.core.heuristics
 
 import ovh.rwx.utils.pathfinding.core.Grid
 import ovh.rwx.utils.pathfinding.core.IHeuristic
+import kotlin.math.max
 
 @Suppress("unused")
 class ChebyshevHeuristic : IHeuristic {
-    override fun getCost(grid: Grid, dx: Int, dy: Int) = Math.max(dx.toDouble(), dy.toDouble())
+    override fun getCost(grid: Grid, dx: Int, dy: Int) = max(dx.toDouble(), dy.toDouble())
 }

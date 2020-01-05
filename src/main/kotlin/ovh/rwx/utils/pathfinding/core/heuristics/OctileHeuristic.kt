@@ -21,10 +21,11 @@ package ovh.rwx.utils.pathfinding.core.heuristics
 
 import ovh.rwx.utils.pathfinding.core.Grid
 import ovh.rwx.utils.pathfinding.core.IHeuristic
+import kotlin.math.sqrt
 
 class OctileHeuristic : IHeuristic {
     override fun getCost(grid: Grid, dx: Int, dy: Int): Double {
-        val r = Math.sqrt(2.toDouble()) - 1
+        val r = sqrt(2.toDouble()) - 1
 
         return if (dx < dy) r * dx + dy else r * dy + dx
     }

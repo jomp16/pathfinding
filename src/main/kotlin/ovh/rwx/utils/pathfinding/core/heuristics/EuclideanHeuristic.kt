@@ -21,8 +21,9 @@ package ovh.rwx.utils.pathfinding.core.heuristics
 
 import ovh.rwx.utils.pathfinding.core.Grid
 import ovh.rwx.utils.pathfinding.core.IHeuristic
+import kotlin.math.sqrt
 
 @Suppress("unused")
 class EuclideanHeuristic : IHeuristic {
-    override fun getCost(grid: Grid, dx: Int, dy: Int) = Math.sqrt((dx * dx + dy * dy).toDouble())
+    override fun getCost(grid: Grid, dx: Int, dy: Int) = sqrt((dx * dx + dy * dy).toDouble())
 }

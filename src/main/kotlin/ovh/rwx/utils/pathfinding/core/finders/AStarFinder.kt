@@ -24,6 +24,8 @@ import ovh.rwx.utils.pathfinding.core.*
 import ovh.rwx.utils.pathfinding.core.heuristics.ManhattanHeuristic
 import ovh.rwx.utils.pathfinding.core.heuristics.OctileHeuristic
 import java.util.*
+import kotlin.math.abs
+import kotlin.math.sqrt
 
 open class AStarFinder(
         private val diagonalMovement: DiagonalMovement = DiagonalMovement.ONLY_WHEN_NO_OBSTACLES,
@@ -71,12 +73,12 @@ open class AStarFinder(
                 val y = neighbor.y
                 // get the distance between current node and the neighbor
                 // and calculate the next g score
-                val ng = node.g + if (x - node.x == 0 || y - node.y == 0) 1.toDouble() else Math.sqrt(2.toDouble())
+                val ng = node.g + if (x - node.x == 0 || y - node.y == 0) 1.toDouble() else sqrt(2.toDouble())
                 // check if the neighbor has not been inspected yet, or
                 // can be reached with smaller cost from the current node
                 if (!openList.contains(neighbor) || ng < neighbor.g) {
                     neighbor.g = ng
-                    neighbor.h = heuristic.getCost(grid, Math.abs((x - endX).toDouble()).toInt(), Math.abs((y - endY).toDouble().toInt()))
+                    neighbor.h = heuristic.getCost(grid, abs((x - endX).toDouble()).toInt(), abs((y - endY).toDouble().toInt()))
                     neighbor.f = neighbor.g + neighbor.h
                     neighbor.parent = node
 
